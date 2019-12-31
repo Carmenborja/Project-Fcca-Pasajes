@@ -6,12 +6,12 @@ public class Medio_Pago {
     
     private int idMedioPago;
     private String nombre_titular,apellidos_titular,n_tarjeta,codigo_seguridad,correo;
-    private Date fecha_expiracion;
+    private String fecha_expiracion;
 
     public Medio_Pago() {
     }
 
-    public Medio_Pago(int idMedioPago, String nombre_titular, String apellidos_titular, String n_tarjeta, String codigo_seguridad, String correo, Date fecha_expiracion) {
+    public Medio_Pago(int idMedioPago, String nombre_titular, String apellidos_titular, String n_tarjeta, String codigo_seguridad, String correo, String fecha_expiracion) {
         this.idMedioPago = idMedioPago;
         this.nombre_titular = nombre_titular;
         this.apellidos_titular = apellidos_titular;
@@ -69,11 +69,11 @@ public class Medio_Pago {
         this.correo = correo;
     }
 
-    public Date getFecha_expiracion() {
+    public String getFecha_expiracion() {
         return fecha_expiracion;
     }
 
-    public void setFecha_expiracion(Date fecha_expiracion) {
+    public void setFecha_expiracion(String fecha_expiracion) {
         this.fecha_expiracion = fecha_expiracion;
     }
 

@@ -67,7 +67,7 @@
           <br>
           <p class="centered"><a href="profile.html"><img src="img/FCCA_logo.png" width="200"></a></p><br>
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href="index.jsp">
               <i class="fa fa-dashboard"></i>
               <span>Menu Principal</span>
               </a>
@@ -78,18 +78,18 @@
               <span>Mantenimientos</span>
               </a>
             <ul class="sub">
-              <li><a href=".html">Cliente</a></li>
-              <li><a href="advanced_form_components.html">Empleado</a></li>
-              <li><a href="panels.html">Tarifa</a></li>
-              <li><a href="font_awesome.html">Cronograma</a></li>
-              <li><a href="font_awesome.html">Asiento</a></li>
-              <li><a href="font_awesome.html">Medio de Pago</a></li>
-              <li><a href="font_awesome.html">Pais</a></li>
-              <li><a href="font_awesome.html">Pasaje</a></li>
-              <li><a href="font_awesome.html">Tarifa</a></li>
-              <li><a href="font_awesome.html">Terminal</a></li>
-              <li><a href="font_awesome.html">Tren</a></li>
-            </ul>
+                                <li><a href="Cliente_List.jsp">Cliente</a></li>
+                                <li><a href="Empleado_List.jsp">Empleado</a></li>
+                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
+                                <li><a href="Cronograma_List.jsp">Cronograma</a></li>
+                                <li><a href="Asiento_List.jsp">Asiento</a></li>
+                                <li><a href="MedioPago_List.jsp">Medio de Pago</a></li>
+                                <li><a href="Pais_List.jsp">Pais</a></li>
+                                <li><a href="Pasaje_List.jsp">Pasaje</a></li>
+                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
+                                <li><a href="Terminal_List.jsp">Terminal</a></li>
+                                <li><a href="Tren_List.jsp">Tren</a></li>
+                            </ul>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
@@ -203,6 +203,7 @@
                   <div class="col-md-3 col-xs-11">
                     <input class="btn btn-success" class="form-control" type="submit" name="accion" value="Agregar" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input type="reset" name="Limpiar" class="btn btn-primary" class="form-control">
+                    <a href="Cliente_List.jsp">Regresar</a>
                   </div>
                 </div>
                 </div>

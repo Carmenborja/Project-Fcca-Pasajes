@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.beans.Asiento;
 import util.conexion;
 
@@ -28,7 +29,8 @@ public class AsientoDAO implements AsientoCRUD {
         
         try {
             
-            String sql = "Select * from Asiento";
+            String sql = "select a.idAsiento,t.idTren,c.Nombres,a.n_asiento,a.Descripcion_Asiento from tren as t inner join asiento as a on a.idTren = t.idTren inner join cliente as c\n" +
+"on c.idCliente = a.idCliente";
             con = cn.conexion();
             ps = con.prepareCall(sql);
             rs = ps.executeQuery();
@@ -36,12 +38,13 @@ public class AsientoDAO implements AsientoCRUD {
                 Asiento asi = new Asiento();
                 asi.setIdAsiento(rs.getInt("idAsiento"));
                 asi.setIdTren(rs.getInt("idTren"));
-                asi.setIdCliente(rs.getInt("idCliente"));
+                asi.setNombre(rs.getString("Nombres"));
                 asi.setN_asiento(rs.getString("n_asiento"));
                 asi.setDescripcion_Asiento(rs.getString("Descripcion_Asiento"));
                 lista.add(asi);
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return lista;
     }
@@ -67,13 +70,14 @@ public class AsientoDAO implements AsientoCRUD {
 
     @Override
     public boolean create(Asiento asi) {
-       String sql="insert into Asiento values('"+asi.getIdTren()+"','"+asi.getIdCliente()+"','"+asi.getN_asiento()+"','"
+       String sql="insert into Asiento values('"+asi.getIdAsiento()+"','"+asi.getIdTren()+"','"+asi.getIdCliente()+"','"+asi.getN_asiento()+"','"
                 +asi.getDescripcion_Asiento()+"')";
             try {
             con=cn.conexion();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
-            }catch(Exception e){            
+            }catch(Exception e){  
+                JOptionPane.showMessageDialog(null, e.getMessage());
             }
             return false;
     }

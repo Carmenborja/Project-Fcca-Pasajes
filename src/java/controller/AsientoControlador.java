@@ -1,6 +1,11 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import model.beans.Asiento;
 import model.dao.AsientoDAO;
+import util.conexion;
 
 public class AsientoControlador extends HttpServlet {
 
@@ -19,6 +25,8 @@ public class AsientoControlador extends HttpServlet {
     Asiento a = new Asiento();
     AsientoDAO dao = new AsientoDAO();
     int id;
+    Connection con; //(1)
+    conexion cn = new conexion(); //(2)
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,12 +47,65 @@ public class AsientoControlador extends HttpServlet {
             acceso=findAll;             
             
         }else if(action.equalsIgnoreCase("add")){
+            Statement st;
+            ResultSet s_esp;
+            ResultSet s_esp1;
+            Statement st1;
+            //Un array para almacenar las especialidades
+            ArrayList pais = new ArrayList();
+
+            try {
+                con = cn.conexion();//(3)
+                
+                //Consultar el nombre del pais existentes en la BD
+                st = con.createStatement();
+                s_esp = st.executeQuery("select idTren from tren");
+
+                //Añadir cada nombre en el array "pais"
+                while (s_esp.next()) {
+                    pais.add(s_esp.getString(1));                    
+                }
+                
+                s_esp.close();
+                st.close();
+                con.close();
+              } catch (SQLException e) {
+                System.err.println("ERROR en el select id tren: " + e.getMessage());
+            }  
+            request.setAttribute("id_tren", pais);
+                
+                ArrayList cliente = new ArrayList();
+
+            try {
+                con = cn.conexion();//(3)
+                
+                //Consultar el nombre del pais existentes en la BD
+                st1 = con.createStatement();
+                s_esp1 = st1.executeQuery("select Nombres from cliente");
+
+                //Añadir cada nombre en el array "pais"
+                while (s_esp1.next()) {
+                    cliente.add(s_esp1.getString(1));                    
+                }
+                
+                s_esp1.close();
+                st1.close();
+                con.close();
+            
+      } catch (SQLException e) {
+                System.err.println("ERROR en el select nombre cliente: " + e.getMessage());
+            } 
+            
+            
+            
+            request.setAttribute("nombre_cliente", cliente);
+            
             acceso=create;
             
         }
-        else if(action.equalsIgnoreCase("create")){
-            int idTren=Integer.parseInt(request.getParameter("txttren"));
-            int idCliente=Integer.parseInt(request.getParameter("txtcliente"));
+        else if(action.equalsIgnoreCase("Agregar")){
+            int idTren=Integer.parseInt(request.getParameter("cboTren"));
+            int idCliente=Integer.parseInt(request.getParameter("cboCliente"));
             String n_asiento=request.getParameter("txtnumero");
             String descripcion=request.getParameter("txtdescripcion");
            

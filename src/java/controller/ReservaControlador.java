@@ -7,6 +7,11 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import model.beans.Reserva;
 import model.dao.ReservaDAO;
+import util.conexion;
 
 /**
  *
@@ -30,6 +36,8 @@ public class ReservaControlador extends HttpServlet {
     Reserva r = new Reserva();
     ReservaDAO dao=new ReservaDAO();
     int id;
+     Connection con; //(1)
+    conexion cn = new conexion(); //(2)
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -68,13 +76,66 @@ public class ReservaControlador extends HttpServlet {
             acceso=findAll;             
             
         }else if(action.equalsIgnoreCase("add")){
+            Statement st;
+            ResultSet s_esp;
+            ResultSet s_esp1;
+            Statement st1;
+            //Un array para almacenar las especialidades
+            ArrayList pais = new ArrayList();
+
+            try {
+                con = cn.conexion();//(3)
+                
+                //Consultar el nombre del pais existentes en la BD
+                st = con.createStatement();
+                s_esp = st.executeQuery("select Nombres from empleado");
+
+                //Añadir cada nombre en el array "pais"
+                while (s_esp.next()) {
+                    pais.add(s_esp.getString(1));                    
+                }
+                
+                s_esp.close();
+                st.close();
+                con.close();
+              } catch (SQLException e) {
+                System.err.println("ERROR en el select Nombres empleado: " + e.getMessage());
+            }  
+            request.setAttribute("nombre_trabajador", pais);
+                
+                ArrayList cliente = new ArrayList();
+
+            try {
+                con = cn.conexion();//(3)
+                
+                //Consultar el nombre del pais existentes en la BD
+                st1 = con.createStatement();
+                s_esp1 = st1.executeQuery("select Nombres from cliente");
+
+                //Añadir cada nombre en el array "pais"
+                while (s_esp1.next()) {
+                    cliente.add(s_esp1.getString(1));                    
+                }
+                
+                s_esp1.close();
+                st1.close();
+                con.close();
+            
+      } catch (SQLException e) {
+                System.err.println("ERROR en el select nombre cliente: " + e.getMessage());
+            } 
+            
+            
+            
+            request.setAttribute("nombre_cliente", cliente);
+            
             acceso=create;
             
         }
-        else if(action.equalsIgnoreCase("create")){
+        else if(action.equalsIgnoreCase("Agregar")){
             int idTrab=Integer.parseInt(request.getParameter("txtidTrab"));
             int idCli=Integer.parseInt(request.getParameter("txtidCli"));
-            Date Fecha = new Date();
+            String Fecha=request.getParameter("txtfecha");
             String descripcion=request.getParameter("txtDesc");
            
            
@@ -95,7 +156,7 @@ public class ReservaControlador extends HttpServlet {
             try {
              int idTrab=Integer.parseInt(request.getParameter("txtidT"));
             int idCli=Integer.parseInt(request.getParameter("txtidC"));
-            Date Fecha = new Date();
+            String Fecha=request.getParameter("txtfecha");
             String descripcion=request.getParameter("txtDesc");
            
            

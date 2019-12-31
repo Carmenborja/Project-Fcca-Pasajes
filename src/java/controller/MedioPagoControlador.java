@@ -58,24 +58,30 @@ public class MedioPagoControlador extends HttpServlet {
             acceso=create;
             
         }
-        else if(action.equalsIgnoreCase("create")){
+        else if(action.equalsIgnoreCase("Agregar")){
+            try {
+                
+            
             String nomT=request.getParameter("txtNombreTit");
             String apeT=request.getParameter("txtApellidosT");
             String n_tar=request.getParameter("txtNTarjeta");
             String cod=request.getParameter("txtCodSeg");
             String corr=request.getParameter("txtCorreo");
-            Date Fecha_exp = new Date();
+            String fech=request.getParameter("txtfech");
             
             m.setNombre_titular(nomT);
             m.setApellidos_titular(apeT);
             m.setN_tarjeta(n_tar);
             m.setCodigo_seguridad(cod);
             m.setCorreo(corr);
-            m.setFecha_expiracion(Fecha_exp);
+            m.setFecha_expiracion(fech);
            
 
             dao.create(m);
             acceso=findAll;
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
         }
         else if(action.equalsIgnoreCase("edit")){
             request.setAttribute("idMePa",request.getParameter("id"));
@@ -89,14 +95,14 @@ public class MedioPagoControlador extends HttpServlet {
             String n_tar=request.getParameter("txtNTarjeta");
             String cod=request.getParameter("txtCodSeg");
             String corr=request.getParameter("txtCorreo");
-            Date Fecha_exp = new Date();
+            String fech=request.getParameter("txtfech");
             
             m.setNombre_titular(nomT);
             m.setApellidos_titular(apeT);
             m.setN_tarjeta(n_tar);
             m.setCodigo_seguridad(cod);
             m.setCorreo(corr);
-            m.setFecha_expiracion(Fecha_exp);
+            m.setFecha_expiracion(fech);
            
 
             dao.create(m);

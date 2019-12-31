@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.beans.Medio_Pago;
 import util.conexion;
 
@@ -34,7 +35,7 @@ public class Medio_PagoDAO implements Medio_PagoCRUD {
                 mp.setApellidos_titular(rs.getString("apellidos_titular"));
                 mp.setN_tarjeta(rs.getString("n_tarjeta"));
                 mp.setCodigo_seguridad(rs.getString("codigo_seguridad"));
-                mp.setFecha_expiracion(rs.getDate("fecha_expiracion"));
+                mp.setFecha_expiracion(rs.getString("fecha_expiracion"));
                 mp.setCorreo(rs.getString("correo"));
                 lista.add(mp);
             }
@@ -56,7 +57,7 @@ public class Medio_PagoDAO implements Medio_PagoCRUD {
                 mp.setApellidos_titular(rs.getString("apellidos_titular"));
                 mp.setN_tarjeta(rs.getString("n_tarjeta"));
                 mp.setCodigo_seguridad(rs.getString("codigo_seguridad"));
-                mp.setFecha_expiracion(rs.getDate("fecha_expiracion"));
+                mp.setFecha_expiracion(rs.getString("fecha_expiracion"));
                 mp.setCorreo(rs.getString("correo"));
             }
         } catch (Exception e) {
@@ -73,6 +74,7 @@ public class Medio_PagoDAO implements Medio_PagoCRUD {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return false;
     }

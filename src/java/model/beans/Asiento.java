@@ -2,7 +2,15 @@ package model.beans;
 public class Asiento {
     
     private int idAsiento,idTren,idCliente;
-    private String n_asiento,Descripcion_Asiento;
+    private String n_asiento,Descripcion_Asiento,nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Asiento() {
     }

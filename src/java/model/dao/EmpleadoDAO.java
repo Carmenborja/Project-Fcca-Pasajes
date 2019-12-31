@@ -74,7 +74,7 @@ public class EmpleadoDAO implements EmpleadoCRUD {
 
     @Override
     public boolean create(Empleado emp) {
-        String sql = "insert into Empleado values('" + emp.getNombres()+ "','" + emp.getApellidos()+ "','" + emp.getDni()+ "','"
+        String sql = "insert into Empleado values('" + emp.getIdEmpleado()+ "','" + emp.getNombres()+ "','" + emp.getApellidos()+ "','" + emp.getDni()+ "','"
                 + emp.getTelefono()+ "','" + emp.getDireccion()+ "','" + emp.getIdTipoEmpleado()+ "','" + emp.getActivo()+ "','" + emp.getUsuario()+ "','" + emp.getContraseña()+ "')";
         try {
             con = cn.conexion();

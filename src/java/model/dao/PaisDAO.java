@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.beans.Cliente;
 import model.beans.Pais;
 import util.conexion;
@@ -63,6 +64,7 @@ public class PaisDAO implements PaisCRUD {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return false;
     }
@@ -75,6 +77,7 @@ public class PaisDAO implements PaisCRUD {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return false;
     }

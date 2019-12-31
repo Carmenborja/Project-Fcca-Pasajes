@@ -70,7 +70,7 @@ public class PaisControlador extends HttpServlet {
             acceso=create;
             
         }
-        else if(action.equalsIgnoreCase("create")){
+        else if(action.equalsIgnoreCase("Agregar")){
             String nom = request.getParameter("txtNombre");
            
             p.setNombre(nom);

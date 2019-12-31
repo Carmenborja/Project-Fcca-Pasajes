@@ -9,11 +9,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<jsp:useBean 
-    id="nombre_pais" 
-    class="java.util.ArrayList" 
-    scope="request"/>
-
 <html lang="en">
 
     <head>

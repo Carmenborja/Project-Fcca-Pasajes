@@ -7,6 +7,11 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import model.beans.Cronograma;
 import model.dao.CronogramaDAO;
+import util.conexion;
 
 /**
  *
@@ -62,16 +68,72 @@ public class CronogramaControlador extends HttpServlet {
 
         String acceso = "";
         String action = request.getParameter("accion");
+         Connection con; //(1)
+    conexion cn = new conexion(); //(2)
 
         if (action.equalsIgnoreCase("findAll")) {
             acceso = findAll;
 
         } else if (action.equalsIgnoreCase("add")) {
-            acceso = create;
+            Statement st;
+            ResultSet s_esp;
+            ResultSet s_esp1;
+            Statement st1;
+            //Un array para almacenar las especialidades
+            ArrayList terminal = new ArrayList();
 
-        } else if (action.equalsIgnoreCase("create")) {           
-            double tar = Double.parseDouble(request.getParameter("txttarifa"));
-            String ter = request.getParameter("txtterminal");
+            try {
+                con = cn.conexion();//(3)
+                
+                //Consultar el nombre del pais existentes en la BD
+                st = con.createStatement();
+                s_esp = st.executeQuery("select direccion_Terminal from terminal");
+
+                //Añadir cada nombre en el array "pais"
+                while (s_esp.next()) {
+                    terminal.add(s_esp.getString(1));                    
+                }
+                
+                s_esp.close();
+                st.close();
+                con.close();
+              } catch (SQLException e) {
+                System.err.println("ERROR en el select direccion_Terminal terminal: " + e.getMessage());
+            }  
+            request.setAttribute("nombre_terminal", terminal);
+                
+                ArrayList tarifa = new ArrayList();
+
+            try {
+                con = cn.conexion();//(3)
+                
+                //Consultar el nombre del pais existentes en la BD
+                st1 = con.createStatement();
+                s_esp1 = st1.executeQuery("select Costo from tarifa");
+
+                //Añadir cada nombre en el array "pais"
+                while (s_esp1.next()) {
+                    tarifa.add(s_esp1.getString(1));                    
+                }
+                
+                s_esp1.close();
+                st1.close();
+                con.close();
+            
+      } catch (SQLException e) {
+                System.err.println("ERROR en el select Costo tarifa: " + e.getMessage());
+            } 
+            
+            
+            
+            request.setAttribute("costo_tarifa", tarifa);
+            
+            acceso=create;
+            
+
+        } else if (action.equalsIgnoreCase("Agregar")) {           
+            double tar = Double.parseDouble(request.getParameter("cboTarifa"));
+            String ter = request.getParameter("cboTarifa");
             String hor_part = request.getParameter("txthor_partida");
             String hor_lleg = request.getParameter("txthor_llegada");
             String fecha_sal = request.getParameter("txtfech_sal");

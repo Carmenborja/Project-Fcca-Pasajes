@@ -70,7 +70,7 @@ public class TrenControlador extends HttpServlet {
             acceso=create;
             
         }
-        else if(action.equalsIgnoreCase("create")){           
+        else if(action.equalsIgnoreCase("Agregar")){           
             String Asien=request.getParameter("txtAsien");
             String Descr=request.getParameter("txtDescr");
             String Ruta=request.getParameter("txtRuta");

@@ -46,7 +46,7 @@
                 </div>
                 <div class="top-menu">
                     <ul class="nav pull-right top-menu">
-                        <li><a class="logout" href="login.html">Iniciar Sesión</a></li>
+                        <li><a class="logout" href="login.jsp">Iniciar Sesión</a></li>
                     </ul>
                 </div>
             </header>
@@ -68,16 +68,16 @@
                             </a>
                             <ul class="sub">
                                 <li><a href="Cliente_List.jsp">Cliente</a></li>
-                                <li><a href="advanced_form_components.html">Empleado</a></li>
-                                <li><a href="panels.html">Tarifa</a></li>
-                                <li><a href="font_awesome.html">Cronograma</a></li>
-                                <li><a href="font_awesome.html">Asiento</a></li>
-                                <li><a href="font_awesome.html">Medio de Pago</a></li>
-                                <li><a href="font_awesome.html">Pais</a></li>
-                                <li><a href="font_awesome.html">Pasaje</a></li>
-                                <li><a href="font_awesome.html">Tarifa</a></li>
-                                <li><a href="font_awesome.html">Terminal</a></li>
-                                <li><a href="font_awesome.html">Tren</a></li>
+                                <li><a href="Empleado_List.jsp">Empleado</a></li>
+                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
+                                <li><a href="Cronograma_List.jsp">Cronograma</a></li>
+                                <li><a href="Asiento_List.jsp">Asiento</a></li>
+                                <li><a href="MedioPago_List.jsp">Medio de Pago</a></li>
+                                <li><a href="Pais_List.jsp">Pais</a></li>
+                                <li><a href="Pasaje_List.jsp">Pasaje</a></li>
+                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
+                                <li><a href="Terminal_List.jsp">Terminal</a></li>
+                                <li><a href="Tren_List.jsp">Tren</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">

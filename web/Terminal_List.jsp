@@ -1,179 +1,180 @@
-<%-- 
-    Document   : Terminal_Listr
-    Created on : 02-dic-2019, 16:12:17
-    Author     : crish
---%>
 
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
 <%@page import="model.beans.Terminal"%>
 <%@page import="model.dao.TerminalDAO"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<jsp:useBean 
+    id="Cliente" 
+    class="java.util.ArrayList" 
+    scope="request"/>
+
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="Dashboard">
+        <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+        <title>Dashio - Bootstrap Admin Template</title>
+
+        <!-- Favicons -->
+        <link href="img/favicon.png" rel="icon">
+        <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>Turismo</title>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/blue-theme.css">
-
-        <link rel="icon" href="img/cropped-transport_icon-180x180.png" sizes="32x32">
-        <link rel="icon" href="img/cropped-transport_icon-300x300.png" sizes="192x192">
-        <link rel="apple-touch-icon-precomposed" href="img/cropped-transport_icon-180x180.png">
-        <meta name="msapplication-TileImage" content="img/cropped-transport_icon-300x300.png">
-
-        <!-- SCRIPTS -->
-        <script type="text/javascript" src="assets/js/modernizr.custom.20160111.js"></script>
+        <!-- Bootstrap core CSS -->
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!--external css-->
+        <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap-fileupload/bootstrap-fileupload.css" />
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap-timepicker/compiled/timepicker.css" />
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap-datetimepicker/datertimepicker.css" />
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style-responsive.css" rel="stylesheet">
     </head>
 
-    <body class="blog" >
-
-
-        <header class="site-header site-header--werk">
-
-            <div class="top">
-                <div class="container">
-                    <div class="top__left">
-                        <div class="widget widget-icon-box">
-                            <a class="icon-box" href="news.html#" target="_self">
-                                <i class="fa fa-envelope"></i>
-                                <h4 class="icon-box__title"><span class="__cf_email__" data-cfemail="2a474b43466a4845465e5904494547">[email&#160;protected]</span></h4> 
-                                <span class="icon-box__subtitle"></span> 
+    <body>
+        <section id="container">
+            <header class="header black-bg">
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                <a href="index.html" class="logo"><b>FC<span>CA</span></b></a>
+                <div class="nav notify-row" id="top_menu">
+                </div>
+                <div class="top-menu">
+                    <ul class="nav pull-right top-menu">
+                        <li><a class="logout" href="login.jsp">Iniciar Sesión</a></li>
+                    </ul>
+                </div>
+            </header>
+            <aside>
+                <div id="sidebar" class="nav-collapse">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <br>
+                        <p class="centered"><a href="profile.html"><img src="img/FCCA_logo.png" width="200"></a></p><br>
+                        <li class="mt">
+                            <a class="active" href="index.html">
+                                <i class="fa fa-dashboard"></i>
+                                <span>Menu Principal</span>
                             </a>
-                        </div>
-                        <div class="widget widget-icon-box">
-                            <div class="icon-box">
-                                <i class="fa fa-home"></i>
-                                <h4 class="icon-box__title">227 Marion Street, Columbia, SC 29201</h4> 
-                                <span class="icon-box__subtitle"></span> 
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-cog"></i>
+                                <span>Mantenimientos</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="Cliente_List.jsp">Cliente</a></li>
+                                <li><a href="Empleado_List.jsp">Empleado</a></li>
+                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
+                                <li><a href="Cronograma_List.jsp">Cronograma</a></li>
+                                <li><a href="Asiento_List.jsp">Asiento</a></li>
+                                <li><a href="MedioPago_List.jsp">Medio de Pago</a></li>
+                                <li><a href="Pais_List.jsp">Pais</a></li>
+                                <li><a href="Pasaje_List.jsp">Pasaje</a></li>
+                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
+                                <li><a href="Terminal_List.jsp">Terminal</a></li>
+                                <li><a href="Tren_List.jsp">Tren</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-calendar"></i>
+                                <span>Reserva</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span>Venta</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <section id="main-content">
+                <section class="wrapper">
+                    <h3><i class="fa fa-angle-right"></i>Listado de Terminales</h3>
+                    <a  href="TerminalControlador?accion=add" class="current-item">Agregar Terminal</a>
+                    <div class="row mt">
+                        <div class="col-lg-12">
+                            <div class="content-panel">
+                                <section id="unseen">
+                                    <table class="table table-bordered table-striped table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Tren</th>
+                                                <th>Nombre</th>
+                                                <th>Direccion</th>
+                                                <th>Telefono</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%
+                                                TerminalDAO dao = new TerminalDAO();
+                                                List<Terminal> list = dao.findAll();
+                                                Iterator<Terminal> iter = list.iterator();
+                                                Terminal cli = null;
+                                                while (iter.hasNext()) {
+                                                    cli = iter.next();
+
+                                            %>
+                                            <tr>
+                                                <td><%= cli.getIdTerminal()%></td>
+                                                <td><%= cli.getIdTren()%></td>
+                                                <td><%= cli.getNombre_Terminal()%></td>
+                                                <td><%= cli.getDireccion_Terminal()%></td>
+                                                <td><%= cli.getTelefono_Terminal()%></td>
+                                                <td>
+                                                    <a class="btn btn-warning" href="TerminalControlador?accion=edit&id=<%=cli.getIdTerminal()%>">Editar</a>    
+                                                    <a class="btn btn-danger" href="TerminalControlador?accion=delete&id=<%=cli.getIdTerminal()%>">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <%}%> 
+                                    </table>
+                                </section>
                             </div>
                         </div>
                     </div>
-                    <!-- end of .top__right -->
-                    <div class="top__right">
-                        <div class="widget widget-social-icons">
-                            <a class="social-icons__link" href="news.html#" target="_self"><i class="fa fa-facebook"></i></a>
-                            <a class="social-icons__link" href="news.html#" target="_self"><i class="fa fa-twitter"></i></a>
-                            <a class="social-icons__link" href="news.html#" target="_self"><i class="fa fa-youtube"></i></a>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <footer class="site-footer">
+                        <div class="text-center">
+                            <p>
+                                &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+                            </p>
+                            <div class="credits">
+                                Created with FCCA template by BOVEA</a>
+                            </div>
+                            <a href="responsive_table.html#" class="go-top">
+                                <i class="fa fa-angle-up"></i>
+                            </a>
                         </div>
-                    </div>
-                    <!-- end of .top__left -->
-                </div>
-                <!-- end of .container -->
-            </div>
-            <!-- end of .top -->
-
-            <div class="header__container">
-
-                <div class="container">
-                    <div class="header">
-                        <!-- Logo and site name -->
-                        <div class="header__logo">
-
-                            <img src="img/FCCA_logo.png" alt="Bolts Transport" srcset="img/FCCA_logo.png, img/FCCA_logo.png 2x" class="img-fluid" width="202" height="60"> 
-
-                        </div>
-                        <!-- Toggle button for Main Navigation on mobile -->
-                        <button class="btn  btn-dark header__navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#bolts-main-navigation">
-                            <i class="fa fa-bars hamburger"></i> 
-                            <span>MENU</span>
-                        </button>
-                        <!-- Main Navigation -->
-                        <nav class="header__navigation collapse navbar-toggleable-md" id="bolts-main-navigation">
-                            <ul id="menu-main-menu" class="main-navigation  js-main-nav" role="menubar">
-                                <li class="menu-item"><a href="Principal_Empleado.jsp">Menu</a></li>
-
-
-                                <li class="menu-item "><a href="Empleado.jsp">Empleado</a></li>
-                                <li class="menu-item menu-item-has-children current-menu-item"><a href="Cliente_add.jsp">Cliente</a></li>
-                                <ul class="sub-menu">
-                                    <li class="menu-item"><a href="Cliente_List.jsp">Listado Cliente</a></li>
-                                    <li class="menu-item"><a href="domestic-services.html">Domestic Services</a></li>
-                                </ul>
-                                <li class="menu-item "><a href="Pais.jsp">Pais</a></li>
-                                <li class="menu-item "><a href="turismo.html">Tren</a></li>
-                                <li class="menu-item "><a href="turismo.html">Asiento</a></li>
-
-                            </ul>
-                        </nav>
-                        <!-- Header widget area -->
-
-                    </div>
-                    <!-- end of .header -->
-                </div>
-                <!-- end of .container -->
-
-            </div>
-            <!-- end of .header__container -->
-    </header>  
-            <div class="page-header">
-                <div class="container">
-                    <div class="page-header__text">
-                        <h1 class="page-header__title">Listado Terminal</h1>
-                        <a class="btn btn-warning" href="TerminalControlador?accion=add">Agregar</a>
-                    </div>
-                    <div class="breadcrumbs">
-                        
-                            Ferrocarril Central Andino
-                        
-                    </div>
-                </div>
-                <!-- end of .container -->
-            </div>
-        
-
-        <!-- end of .container -->
-
-
-        <div class="table table-responsive">
-            <table class="table">
-                <thead>
-                    <tr class="table-primary">
-                        <th class="text-center">Id</th>
-                        <th class="text-center">Ruta</th>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Direccion</th>                         
-                        <th class="text-center">Telef.</th>
-                        <th class="text-center">Acciones</th>
-                        
-                    </tr>
-                </thead>
-
-                <%
-                    TerminalDAO dao = new TerminalDAO();
-                    List<Terminal> list = dao.findAll();
-                    Iterator<Terminal> iter = list.iterator();
-                    Terminal asi = null;
-                    while (iter.hasNext()) {
-                        asi = iter.next();
-                        
-                %>
-                <tbody>
-                    <tr>
-                        <td class="text-center"><%= asi.getIdTerminal()%></td>
-                        <td class="text-center"><%= asi.getIdTren()%></td>
-                        <td class="text-center"><%= asi.getNombre_Terminal()%></td>
-                        <td class="text-center"><%= asi.getDireccion_Terminal()%></td>
-                        <td class="text-center"><%= asi.getTelefono_Terminal()%></td>
-                          
-                        <td>
-                            <a class="btn btn-warning" href="TerminalControlador?accion=edit&id=<%=asi.getIdTerminal()%>">Editar</a><br><br>    
-                                <a class="btn btn-danger" href="TerminalControlador?accion=delete&id=<%=asi.getIdTerminal()%>">Eliminar</a>
-                        </td>
-                    </tr>
-                     <%}%>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- SCRIPTS -->
-        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="assets/js/jquery.js"></script>
-        <script type="text/javascript" src="assets/js/underscore.js"></script>
-        <script type="text/javascript" src="bower_components/requirejs/require.js"></script>
-        <script type="text/javascript" src="assets/js/main.js"></script>
-        <script type="text/javascript" src="assets/js/wpFeatherlight.pkgd.js"></script>
-    
-</html>
-</html>
+                    </footer>
+                </section>
+                <script src="lib/jquery/jquery.min.js"></script>
+                <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+                <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
+                <script src="lib/jquery.scrollTo.min.js"></script>
+                <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
+                <!--common script for all pages-->
+                <script src="lib/common-scripts.js"></script>
+                <!--script for this page-->
+                <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+                <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+                <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+                <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
+                <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+                <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+                <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
+                <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+                <script src="lib/advanced-form-components.js"></script>
+                </body>
+                </html>

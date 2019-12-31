@@ -89,7 +89,7 @@ public class TerminalControlador extends HttpServlet {
                 
                 //Consultar el nombre del pais existentes en la BD
                 st = con.createStatement();
-                s_esp = st.executeQuery("select ruta from tren");
+                s_esp = st.executeQuery("select idTren from tren");
 
                 //Añadir cada nombre en el array "pais"
                 while (s_esp.next()) {
@@ -105,11 +105,26 @@ public class TerminalControlador extends HttpServlet {
                 System.err.println("ERROR en el select ruta tren: " + e.getMessage());
             }
             
-            request.setAttribute("ruta_tren", ruta);
+            request.setAttribute("id_tren", ruta);
             
             
             acceso=create;
             
+        }
+        else if(action.equalsIgnoreCase("Agregar")){           
+            String idTren=request.getParameter("cboTren");
+            String Nom_Ter=request.getParameter("txtNom_Ter");
+            String dir_Ter=request.getParameter("txtdir_Ter");
+            String telf_Ter=request.getParameter("txttelf_Ter");
+            
+           
+           t.setIdTren(idTren);
+            t.setNombre_Terminal(Nom_Ter);
+            t.setDireccion_Terminal(dir_Ter);
+            t.setTelefono_Terminal(telf_Ter);
+            
+            dao.create(t);
+            acceso=findAll;
         }
         else if(action.equalsIgnoreCase("edit")){
             request.setAttribute("idTer",request.getParameter("id"));

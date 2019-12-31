@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.beans.Pasaje;
 import util.conexion;
 
@@ -31,8 +32,7 @@ public class PasajeDAO implements PasajeCRUD {
                 Pasaje pas = new Pasaje();
                 pas.setIdPasaje(rs.getInt("idPasaje"));
                 pas.setIdCronograma(rs.getInt("idCronograma"));
-                pas.setFecha_pasaje(rs.getDate("Fecha_pasaje"));
-                pas.setCategoria(rs.getString("categoria"));
+                pas.setFecha_pasaje(rs.getString("Fecha_pasaje"));
                 lista.add(pas);
             }
         } catch (Exception e) {
@@ -50,8 +50,8 @@ public class PasajeDAO implements PasajeCRUD {
             while (rs.next()) {
                 pas.setIdPasaje(rs.getInt("idPasaje"));
                 pas.setIdCronograma(rs.getInt("idCronograma"));
-                pas.setFecha_pasaje(rs.getDate("Fecha_pasaje"));
-                pas.setCategoria(rs.getString("categoria"));
+                pas.setFecha_pasaje(rs.getString("Fecha_pasaje"));
+
             }
         } catch (Exception e) {
         }
@@ -60,19 +60,20 @@ public class PasajeDAO implements PasajeCRUD {
 
     @Override
     public boolean create(Pasaje pas) {
-        String sql = "insert into Pasaje values('" + pas.getIdCronograma()+ "','" + pas.getFecha_pasaje()+ "','" + pas.getCategoria()+"')";
+        String sql = "insert into Pasaje values('" + pas.getIdPasaje()+ "','" + pas.getIdCronograma()+ "','" + pas.getFecha_pasaje()+ "')";
         try {
             con = cn.conexion();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return false;
     }
 
     @Override
     public boolean edit(Pasaje pas) {
-        String sql = "update Pasaje set idCronograma='" + pas.getIdCronograma()+ "',Fecha_pasaje='" + pas.getFecha_pasaje()+ "',categoria='" + pas.getCategoria()+ "' where idPasaje=" + pas.getIdPasaje();
+        String sql = "update Pasaje set idCronograma='" + pas.getIdCronograma()+ "',Fecha_pasaje='" + pas.getFecha_pasaje()+ "' where idPasaje=" + pas.getIdPasaje();
         try {
             con = cn.conexion();
             ps = con.prepareStatement(sql);

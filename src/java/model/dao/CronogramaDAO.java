@@ -30,8 +30,8 @@ public class CronogramaDAO implements CronogramaCRUD {
             while (rs.next()) {
                 Cronograma cr = new Cronograma();
                 cr.setIdCronograma(rs.getInt("idCronograma"));
-                cr.setIdTerminal(rs.getString("TE.Nombre_Terminal"));
-                cr.setIdTarifa(rs.getDouble("TA.Costo"));
+                cr.setIdTerminal(rs.getString("Nombre_Terminal"));
+                cr.setIdTarifa(rs.getDouble("Costo"));
                 cr.setHora_partida(rs.getString("hora_partida"));
                 cr.setHora_llegada(rs.getString("hora_llegada"));
                 cr.setFecha_salida(rs.getString("Fecha_salida"));
@@ -70,7 +70,7 @@ public class CronogramaDAO implements CronogramaCRUD {
 
     @Override
     public boolean create(Cronograma cr) {
-        String sql = "insert into Cronograma values('" + cr.getIdTerminal()+ "','" + cr.getIdTarifa()+ "','" + cr.getHora_partida()+ "','"+ cr.getHora_llegada()+ "',"
+        String sql = "insert into Cronograma values('" + cr.getIdCronograma()+ "','" + cr.getIdTerminal()+ "','" + cr.getIdTarifa()+ "','" + cr.getHora_partida()+ "','"+ cr.getHora_llegada()+ "',"
                 + "'"+cr.getFecha_salida()+"','"+cr.getFecha_retorno()+"','"+cr.getEstacion_inicio()+"','"+cr.getEstacion_fin()+"')";
         try {
             con = cn.conexion();

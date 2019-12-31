@@ -57,7 +57,7 @@ public class EmpleadoControlador extends HttpServlet {
             acceso=create;
             
         }
-        else if(action.equalsIgnoreCase("create")){
+        else if(action.equalsIgnoreCase("Agregar")){
             String nom=request.getParameter("txtNombres");
             String ape=request.getParameter("txtApellidos");
             String dni=request.getParameter("txtDni");
@@ -66,7 +66,7 @@ public class EmpleadoControlador extends HttpServlet {
             String idTEmp=request.getParameter("cboTipo");
             String usu = request.getParameter("txtuser");
             String con = request.getParameter("txtpass");
-            byte act = Byte.parseByte("cboEstado");
+            byte act = Byte.parseByte(request.getParameter("cboEstado"));
             
             
            

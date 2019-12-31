@@ -5,17 +5,15 @@ import java.util.Date;
 public class Pasaje {
     
     private int idPasaje,idCronograma;
-    private Date Fecha_pasaje;
-    private String categoria;
+    private String Fecha_pasaje;
 
     public Pasaje() {
     }
 
-    public Pasaje(int idPasaje, int idCronograma, Date Fecha_pasaje, String categoria) {
+    public Pasaje(int idPasaje, int idCronograma, String Fecha_pasaje) {
         this.idPasaje = idPasaje;
         this.idCronograma = idCronograma;
         this.Fecha_pasaje = Fecha_pasaje;
-        this.categoria = categoria;
     }
 
     public int getIdPasaje() {
@@ -34,22 +32,13 @@ public class Pasaje {
         this.idCronograma = idCronograma;
     }
 
-    public Date getFecha_pasaje() {
+    public String getFecha_pasaje() {
         return Fecha_pasaje;
     }
 
-    public void setFecha_pasaje(Date Fecha_pasaje) {
+    public void setFecha_pasaje(String Fecha_pasaje) {
         this.Fecha_pasaje = Fecha_pasaje;
     }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-    
-    
+   
     
 }

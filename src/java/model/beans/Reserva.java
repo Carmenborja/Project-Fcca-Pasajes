@@ -1,17 +1,33 @@
 package model.beans;
 
-import java.util.Date;
+
 
 public class Reserva {
     
     private int idReserva,idTrabajador,idCliente;
-    private Date Fecha;
-    private String Descripcion;
+    private String Fecha;
+    private String Descripcion,nom_trab,nom_cli;
+
+    public String getNom_trab() {
+        return nom_trab;
+    }
+
+    public void setNom_trab(String nom_trab) {
+        this.nom_trab = nom_trab;
+    }
+
+    public String getNom_cli() {
+        return nom_cli;
+    }
+
+    public void setNom_cli(String nom_cli) {
+        this.nom_cli = nom_cli;
+    }
 
     public Reserva() {
     }
 
-    public Reserva(int idReserva, int idTrabajador, int idCliente, Date Fecha, String Descripcion) {
+    public Reserva(int idReserva, int idTrabajador, int idCliente, String Fecha, String Descripcion) {
         this.idReserva = idReserva;
         this.idTrabajador = idTrabajador;
         this.idCliente = idCliente;
@@ -43,11 +59,11 @@ public class Reserva {
         this.idCliente = idCliente;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return Fecha;
     }
 
-    public void setFecha(Date Fecha) {
+    public void setFecha(String Fecha) {
         this.Fecha = Fecha;
     }
 

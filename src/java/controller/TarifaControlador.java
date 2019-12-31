@@ -70,7 +70,7 @@ public class TarifaControlador extends HttpServlet {
             acceso=create;
             
         }
-        else if(action.equalsIgnoreCase("create")){
+        else if(action.equalsIgnoreCase("Agregar")){
             String idTviaje=request.getParameter("txtidTviaje");
             String idCat=request.getParameter("txtidCat");
             double Costo = Double.parseDouble(request.getParameter("txtCosto"));
