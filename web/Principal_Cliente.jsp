@@ -72,7 +72,7 @@
                                 No te pierdas de disfrutar una fantástica experiencia
                             </p>
                             <p>
-                                <a class="btn btn-secondary" href="pasaje.jsp" target="_self"> COMPRAR PASAJE</a>
+                                <a class="btn btn-secondary" href="ClienteControlador?accion=add" target="_self"> COMPRAR PASAJE</a>
                                 &nbsp;&nbsp;&nbsp;
                                 <a class="btn btn-light" href="insti.html" target="_self"> MAS INFORMACIÓN</a>
                             </p>

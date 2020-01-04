@@ -60,7 +60,7 @@ public class EmpleadoControlador extends HttpServlet {
         else if(action.equalsIgnoreCase("Agregar")){
             String nom=request.getParameter("txtNombres");
             String ape=request.getParameter("txtApellidos");
-            String dni=request.getParameter("txtDni");
+            String dni=request.getParameter("txtDNI");
             String telf=request.getParameter("txtTelefono");
             String dir=request.getParameter("txtDireccion");
             String idTEmp=request.getParameter("cboTipo");
@@ -90,18 +90,19 @@ public class EmpleadoControlador extends HttpServlet {
         else if(action.equalsIgnoreCase("Actualizar")){
             
             try {
-             String nom=request.getParameter("txtNombres");
+            int id= Integer.parseInt(request.getParameter("txtCodigo"));
+            String nom=request.getParameter("txtNombres");
             String ape=request.getParameter("txtApellidos");
             String DNI=request.getParameter("txtDNI");
             String telf=request.getParameter("txtTelefono");
             String dir=request.getParameter("txtDireccion");
-            String idTEmp=request.getParameter("txtidTipoEmpleado");
-            String usu = request.getParameter("txtUsuario");
-            String con = request.getParameter("txtContrasenia");
-            byte act = Byte.parseByte("txtActivo");
+            String idTEmp=request.getParameter("cboTipo");
+            String usu = request.getParameter("txtuser");
+            String con = request.getParameter("txtpass");
+            byte act = Byte.parseByte(request.getParameter("cboEstado"));
             
             
-           
+            e.setIdEmpleado(id);
             e.setNombres(nom);
             e.setApellidos(ape);
             e.setDni(DNI);
@@ -112,7 +113,7 @@ public class EmpleadoControlador extends HttpServlet {
             e.setContraseña(con);
             e.setActivo(act);
 
-            dao.create(e);
+            dao.edit(e);
             acceso=findAll;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, ""+e.getMessage());

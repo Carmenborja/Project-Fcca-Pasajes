@@ -56,7 +56,7 @@
                         <br>
                         <p class="centered"><a href="profile.html"><img src="img/FCCA_logo.png" width="200"></a></p><br>
                         <li class="mt">
-                            <a class="active" href="index.html">
+                            <a class="active" href="index.jsp">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Menu Principal</span>
                             </a>

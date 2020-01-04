@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.beans.Cronograma;
 import util.conexion;
 
@@ -77,6 +78,7 @@ public class CronogramaDAO implements CronogramaCRUD {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return false;
     }
@@ -90,6 +92,7 @@ public class CronogramaDAO implements CronogramaCRUD {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return false;
     }

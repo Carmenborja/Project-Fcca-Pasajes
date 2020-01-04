@@ -75,7 +75,6 @@
                                 <li><a href="MedioPago_List.jsp">Medio de Pago</a></li>
                                 <li><a href="Pais_List.jsp">Pais</a></li>
                                 <li><a href="Pasaje_List.jsp">Pasaje</a></li>
-                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
                                 <li><a href="Terminal_List.jsp">Terminal</a></li>
                                 <li><a href="Tren_List.jsp">Tren</a></li>
                             </ul>

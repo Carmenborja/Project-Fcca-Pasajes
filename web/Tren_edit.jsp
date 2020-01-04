@@ -156,9 +156,10 @@
 
                 <div class="form-group">
                   <div class="col-md-3 col-xs-11">
+                      <input type="hidden" name="txtCodigo" value="<%= cli.getIdTren()%>">
                     <input class="btn btn-success" class="form-control" type="submit" name="accion" value="Actualizar" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input type="reset" name="Limpiar" class="btn btn-primary" class="form-control">
-                    <a href="Cliente_List.jsp">Regresar</a>
+                    <a href="Tren_List.jsp">Regresar</a>
                   </div>
                 </div>
                 </div>

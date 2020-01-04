@@ -84,7 +84,7 @@ public class AsientoDAO implements AsientoCRUD {
 
     @Override
     public boolean edit(Asiento asi) {
-        String sql="update Asiento set idTren='"+asi.getIdTren()+"',idCliente='"+asi.getIdCliente()+"',n_asiento='"+asi.getN_asiento()+"',Descripcion_Asiento='"+asi.getDescripcion_Asiento()+"' where idCliente="+asi.getIdAsiento();
+        String sql="update Asiento set idTren='"+asi.getIdTren()+"',idCliente='"+asi.getIdCliente()+"',n_asiento='"+asi.getN_asiento()+"',Descripcion_Asiento='"+asi.getDescripcion_Asiento()+"' where idAsiento="+asi.getIdAsiento();
         try {
             con=cn.conexion();
             ps=con.prepareStatement(sql);

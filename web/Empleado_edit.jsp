@@ -142,7 +142,7 @@
                 <div class="form-group">
                   <label class="control-label col-md-3">Dni:</label>
                   <div class="col-md-3 col-xs-11">
-                    <input type="text" name="txtDni" class="form-control" value="<%= cli.getDni()%>">
+                    <input type="text" name="txtDNI" class="form-control" value="<%= cli.getDni()%>">
                   </div>
                 </div>
 
@@ -196,6 +196,7 @@
 
                 <div class="form-group">
                   <div class="col-md-3 col-xs-11">
+                      <input type="hidden" name="txtCodigo" value="<%= cli.getIdEmpleado()%>">
                     <input class="btn btn-success" class="form-control" type="submit" name="accion" value="Actualizar" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input type="reset" name="Limpiar" class="btn btn-primary" class="form-control">
                     <a href="Cliente_List.jsp">Regresar</a>

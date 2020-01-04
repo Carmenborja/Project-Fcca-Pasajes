@@ -125,7 +125,7 @@
                 <div class="form-group">
                   <label class="control-label col-md-3">Dni:</label>
                   <div class="col-md-3 col-xs-11">
-                    <input type="text" name="txtDni" class="form-control">
+                    <input type="text" name="txtDNI" class="form-control">
                   </div>
                 </div>
 

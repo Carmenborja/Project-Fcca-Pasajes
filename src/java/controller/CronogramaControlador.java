@@ -131,9 +131,9 @@ public class CronogramaControlador extends HttpServlet {
             acceso=create;
             
 
-        } else if (action.equalsIgnoreCase("Agregar")) {           
+        } else if (action.equalsIgnoreCase("Agregar")) {  
+            String ter = request.getParameter("cboTerminal");
             double tar = Double.parseDouble(request.getParameter("cboTarifa"));
-            String ter = request.getParameter("cboTarifa");
             String hor_part = request.getParameter("txthor_partida");
             String hor_lleg = request.getParameter("txthor_llegada");
             String fecha_sal = request.getParameter("txtfech_sal");
@@ -158,8 +158,9 @@ public class CronogramaControlador extends HttpServlet {
         } else if (action.equalsIgnoreCase("Actualizar")) {
 
             try {
-                double tar = Double.parseDouble(request.getParameter("txttarifa"));
-                String ter = request.getParameter("txtterminal");
+                int id=Integer.parseInt(request.getParameter("txtCodigo"));
+                String ter = request.getParameter("cboTerminal");
+                double tar = Double.parseDouble(request.getParameter("cboTarifa"));
                 String hor_part = request.getParameter("txthor_partida");
                 String hor_lleg = request.getParameter("txthor_llegada");
                 String fecha_sal = request.getParameter("txtfech_sal");
@@ -167,6 +168,7 @@ public class CronogramaControlador extends HttpServlet {
                 String est_inicio = request.getParameter("txtest_inicio");
                 String est_fin = request.getParameter("txtest_fin");
 
+                c.setIdCronograma(id);
                 c.setIdTerminal(ter);
                 c.setIdTarifa(tar);
                 c.setHora_partida(hor_part);

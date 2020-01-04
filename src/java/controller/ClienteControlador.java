@@ -25,8 +25,8 @@ import util.conexion;
 @WebServlet(name = "ClienteControlador", urlPatterns = {"/ClienteControlador"})
 public class ClienteControlador extends HttpServlet {
 
-    String findAll="Cliente_List.jsp";
-    String create="Cliente_add.jsp";
+    String findAll="Reg_asiento.jsp";
+    String create="Reg_cliente.jsp";
     String edit="Cliente_edit.jsp";
   
     Cliente e=new Cliente();

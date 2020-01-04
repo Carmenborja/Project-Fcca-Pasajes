@@ -125,8 +125,8 @@ public class AsientoControlador extends HttpServlet {
             
             try {
             int id=Integer.parseInt(request.getParameter("txtCodigo"));
-            int idTren=Integer.parseInt(request.getParameter("txttren"));
-            int idCliente=Integer.parseInt(request.getParameter("txtcliente"));
+            int idTren=Integer.parseInt(request.getParameter("cboTren"));
+            int idCliente=Integer.parseInt(request.getParameter("cboCliente"));
             String n_asiento=request.getParameter("txtnumero");
             String descripcion=request.getParameter("txtdescripcion");
             

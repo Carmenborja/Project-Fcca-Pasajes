@@ -14,7 +14,6 @@
         <link href="css/style-responsive.css" rel="stylesheet">
         <script src="lib/chart-master/Chart.js"></script>
     </head>
-
     <body>
         <section id="container">
             <header class="header black-bg">
@@ -22,10 +21,15 @@
                     <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                 </div>
                 <a href="index.html" class="logo"><b>FC<span>CA</span></b></a>
-                <div class="top-menu">
+                <div class="text-right ">
                     <ul class="nav pull-right top-menu">
-                        <li><a class="logout" href="index.jsp">Cerrar Sesión</a></li>
+                        <br>
+                        <span class="all-tittles">Trabajador: ${trabajador.getNombres()} ${trabajador.getApellidos()} //Cargo: ${trabajador.getIdTipoEmpleado()}
+                              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a  class="logout btn btn-primary " href="index.jsp">Cerrar Sesión</a> 
+                        </span>
+                        
                     </ul>
+                        
                 </div>
             </header>
             <aside>
@@ -34,7 +38,7 @@
                         <br>
                         <p class="centered"><a href="profile.html"><img src="img/FCCA_logo.png" width="200"></a></p><br>
                         <li class="mt">
-                            <a class="active" href="index.html">
+                            <a class="active" href="index.jsp">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Menu Principal</span>
                             </a>
@@ -53,7 +57,6 @@
                                 <li><a href="MedioPago_List.jsp">Medio de Pago</a></li>
                                 <li><a href="Pais_List.jsp">Pais</a></li>
                                 <li><a href="Pasaje_List.jsp">Pasaje</a></li>
-                                <li><a href="Tarifa_List.jsp">Tarifa</a></li>
                                 <li><a href="Terminal_List.jsp">Terminal</a></li>
                                 <li><a href="Tren_List.jsp">Tren</a></li>
                             </ul>

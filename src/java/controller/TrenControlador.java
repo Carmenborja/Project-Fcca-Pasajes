@@ -92,12 +92,13 @@ public class TrenControlador extends HttpServlet {
         else if(action.equalsIgnoreCase("Actualizar")){
             
             try {
-             String Asien=request.getParameter("txtAsien");
+            int id = Integer.parseInt(request.getParameter("txtCodigo"));
+            String Asien=request.getParameter("txtAsien");
             String Descr=request.getParameter("txtDescr");
             String Ruta=request.getParameter("txtRuta");
             String CantCo=request.getParameter("txtCantCo");
             
-           
+            t.setIdTren(id);
             t.setAsientos(Asien);
             t.setDescripcion_tren(Descr);
             t.setRuta(Ruta);

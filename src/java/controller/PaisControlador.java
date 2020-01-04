@@ -85,11 +85,13 @@ public class PaisControlador extends HttpServlet {
         else if(action.equalsIgnoreCase("Actualizar")){
             
             try {
+                
+             int id = Integer.parseInt(request.getParameter("txtCodigo"));   
              String nom = request.getParameter("txtNombre");
-           
+            p.setIdPais(id);
             p.setNombre(nom);
             
-            dao.create(p);
+            dao.edit(p);
             acceso=findAll;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, ""+e.getMessage());

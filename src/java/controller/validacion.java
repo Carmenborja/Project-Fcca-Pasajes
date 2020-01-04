@@ -42,6 +42,7 @@ public class validacion extends HttpServlet {
             String pass = request.getParameter("txtpass");
             em=dao.validar(user, pass);
             if (em.getUsuario()!=null) {
+                request.setAttribute("trabajador", em);
                 request.getRequestDispatcher("EmpleadoControlador?accion=Principal").forward(request, response);
             }else{
                 request.getRequestDispatcher("index.jsp").forward(request, response);

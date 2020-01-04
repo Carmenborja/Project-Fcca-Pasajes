@@ -118,7 +118,7 @@ public class TerminalControlador extends HttpServlet {
             String telf_Ter=request.getParameter("txttelf_Ter");
             
            
-           t.setIdTren(idTren);
+            t.setIdTren(idTren);
             t.setNombre_Terminal(Nom_Ter);
             t.setDireccion_Terminal(dir_Ter);
             t.setTelefono_Terminal(telf_Ter);

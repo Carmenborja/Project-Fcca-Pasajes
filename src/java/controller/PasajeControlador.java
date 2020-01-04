@@ -134,15 +134,18 @@ public class PasajeControlador extends HttpServlet {
         else if(action.equalsIgnoreCase("Actualizar")){
             
             try {
-            int idCrono=Integer.parseInt(request.getParameter("txtCrono"));
+                
+            int id=Integer.parseInt(request.getParameter("txtCodigo"));
+                
+            int idCrono=Integer.parseInt(request.getParameter("cbocrono"));
             String fecha=request.getParameter("Fecha_pasaje");
             
-           
+            p.setIdPasaje(id);
             p.setIdCronograma(idCrono);
             p.setFecha_pasaje(fecha);
             
             
-            dao.create(p);
+            dao.edit(p);
             acceso=findAll;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, ""+e.getMessage());
